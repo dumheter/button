@@ -37,6 +37,12 @@ public:
   bool read_raw ();
 
   /**
+   * Do you find that default debounce values are not stable enugh?
+   * Set a higher value! (default 5ms)
+   */
+  void set_debounce (unsigned long debounce_ms);
+  
+  /**
    * returns the pin of the button. Note that pin Cannot be changed.
    */
   int get_pin ();

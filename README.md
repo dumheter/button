@@ -2,10 +2,13 @@
 Simple software debouncing button library for arduino.
 
 ## Usage
+Grab the two files `button.cpp` & `button.hpp` and put with your `.ino` file.
+then `#include "button.hpp"` and you are ready to go!  
+
 Read button.hpp to learn how to use this library, or see example below.
 
 ## Example
-See folder example for a usage example, or better yet: Read the button.hpp file.
+Read example code below, or better yet: Read the button.hpp file.
 ```
 #include "button.hpp"
 

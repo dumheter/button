@@ -50,6 +50,10 @@ bool Button::read_raw () {
   return digitalRead(pin);
 }
 
+void Button::set_debounce (unsigned long _debounce_ms) {
+  debounce_ms = _debounce_ms;
+}
+
 int Button::get_pin () {
   return pin;
 }
