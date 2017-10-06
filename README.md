@@ -1,11 +1,16 @@
 # button
-Simple software debouncing button library for arduino.
+Simple software debouncing button library for Arduino.
 
 ## Usage
-Grab the two files `button.cpp` & `button.hpp` and put with your `.ino` file.
-then `#include "button.hpp"` and you are ready to go!  
+To use the library drop the folder inside your library folder in arduino. If you
+don't know where that folder resides, google "Arduino library folder". Then add
+`#include <button.hpp>` at the top of your Arduino file.
 
-Read button.hpp to learn how to use this library, or see example below.
+__Or__ grab the two files `button.cpp` & `button.hpp` and put with your `.ino` file.
+then `#include "button.hpp"` and you are ready to go!
+
+Read button.hpp to learn how to use this library, or see example below or
+in the exmaples folder.
 
 ## Example
 Read example code below, or better yet: Read the button.hpp file.
@@ -25,7 +30,7 @@ void setup () {
 void loop () {
   //static makese it set state = false once only.
   static bool state = false;
-  
+
   if (state != button.read()) {
     state = !state;
 
@@ -37,5 +42,8 @@ void loop () {
 
 
 ## Wiring
-How do you wire the button? See this picture:  
+How do you wire the button? See this picture:
 ![Image of Wiring](https://github.com/dumheter/button/blob/master/wiring_wikimediacommons.png)
+
+## Disclaimer
+I have only tested this library with an ESP8266 and not with an Arduino device.
