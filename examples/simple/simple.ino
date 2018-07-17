@@ -14,7 +14,16 @@
  * include the button library and declare a button class.
  */
 #include <button.hpp>
-#define button_pin D0
+
+// if arduino board use digial pin 2
+#if defined(ARDUINO_ARCH_AVR)
+# define button_pin 2
+// if on esp board use digital pin D0
+#elif defined(ARDUINO_ARCH_ESP8266)
+# define button_pin D0
+#endif
+
+// create our global button
 Button button(button_pin);
 
 /**
