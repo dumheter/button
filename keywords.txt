@@ -6,16 +6,16 @@
 # Datatypes (KEYWORD1)
 #######################################
 
-Button  KEYWORD1
+Button	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
 
-read          KEYWORD2
-read_raw      KEYWORD2
-set_debounce  KEYWORD2
-get_pin       KEYWORD2
+read	KEYWORD2
+read_raw	KEYWORD2
+set_debounce	KEYWORD2
+get_pin	KEYWORD2
 
 #######################################
 # Instances (KEYWORD2)
