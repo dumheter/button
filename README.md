@@ -18,8 +18,8 @@ Read example code below, or better yet: Read the button.hpp file.
 #include "button.hpp"
 
 
-//Here we initialize our button on pin D0
-Button button(D0);
+//Here we initialize our button on pin 2
+Button button(2);
 
 
 void setup () {

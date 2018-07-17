@@ -15,10 +15,10 @@
  */
 #include <button.hpp>
 
-// if arduino board use digial pin 2
+// If arduino board, use digial pin 2.
 #if defined(ARDUINO_ARCH_AVR)
 # define button_pin 2
-// if on esp board use digital pin D0
+// If esp board, use digital pin D0.
 #elif defined(ARDUINO_ARCH_ESP8266)
 # define button_pin D0
 #endif
@@ -29,8 +29,8 @@ Button button(button_pin);
 /**
  * Code in setup will be run once.
  */
-void setup () {
-
+void setup()
+{
   //initiate serial communication
   Serial.begin(115200);
   Serial.println();
@@ -40,8 +40,8 @@ void setup () {
 /**
  * Code in loop will run continuously.
  */
-void loop () {
-
+void loop()
+{
   //print button pressed when pressing button
   if (button.read()) {
     static int count = 0;

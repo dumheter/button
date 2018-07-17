@@ -1,16 +1,13 @@
 #include "button.hpp"
 
-Button::Button (int _pin, bool _normally_high_flag) {
-  pin = _pin;
+Button::Button(int _pin, bool _normally_high_flag)
+  : pin(_pin), normally_high_flag(_normally_high_flag)
+{
   pinMode(pin, INPUT);
-  timer = 0;
-  debounce_ms = 5;
-  debounce_flag = false;
-  button_state = false;
-  normally_high_flag = _normally_high_flag;
 }
 
-bool Button::read () {
+bool Button::read()
+{
   bool sample = digitalRead(pin);
   if (normally_high_flag)
     sample = !sample;
@@ -18,13 +15,13 @@ bool Button::read () {
   if (sample && !button_state) {
     if (millis() - timer > debounce_ms) {
       timer = millis();
-      
+
       if (!debounce_flag) {
-	debounce_flag = true;
+        debounce_flag = true;
       }
       else {
-	debounce_flag = false;
-	button_state = true;
+        debounce_flag = false;
+        button_state = true;
       }
     }
   }
@@ -32,13 +29,13 @@ bool Button::read () {
   else if (!sample && button_state) {
     if (millis() - timer > debounce_ms) {
       timer = millis();
-      
+
       if (!debounce_flag) {
-	debounce_flag = true;
+        debounce_flag = true;
       }
       else {
-	debounce_flag = false;
-	button_state = false;
+        debounce_flag = false;
+        button_state = false;
       }
     }
   }
@@ -46,14 +43,17 @@ bool Button::read () {
   return button_state;
 }
 
-bool Button::read_raw () {
+bool Button::read_raw() const
+{
   return digitalRead(pin);
 }
 
-void Button::set_debounce (unsigned long _debounce_ms) {
+void Button::set_debounce(unsigned long _debounce_ms)
+{
   debounce_ms = _debounce_ms;
 }
 
-int Button::get_pin () {
+int Button::get_pin() const
+{
   return pin;
 }

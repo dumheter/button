@@ -23,39 +23,39 @@ public:
    * @param noramlly_high_flag if a digitalRead() return 1 when not pressed, set
    * this flag to true.
    */
-  Button (int pin, bool normally_high_flag = false);
+  Button(int pin, bool normally_high_flag = false);
 
   /**
    * Debounced read of button.
    *
    * Important: Should be called at minimum every 5ms (debounce_ms) for a reliable read.
    */
-  bool read ();
+  bool read();
 
   /**
    * Reads the raw value from the button. I don't recommend this.
    */
-  bool read_raw ();
+  bool read_raw() const;
 
   /**
    * Do you find that default debounce values are not stable enugh?
    * Set a higher value! (default 5ms)
    */
-  void set_debounce (unsigned long debounce_ms);
+  void set_debounce(unsigned long debounce_ms);
 
   /**
    * returns the pin of the button. Note that pin Cannot be changed.
    */
-  int get_pin ();
+  int get_pin() const;
 
 
 private:
-  int pin;
-  unsigned long timer;
-  unsigned long debounce_ms;
-  bool debounce_flag;
-  bool button_state;
-  bool normally_high_flag;
+  const int pin;
+  const bool normally_high_flag;
+  unsigned long timer = 0;
+  unsigned long debounce_ms = 5;
+  bool debounce_flag = false;
+  bool button_state = false;
 
 };
 
