@@ -3,6 +3,11 @@
 Button::Button(int _pin, bool _normally_high_flag)
   : pin(_pin), normally_high_flag(_normally_high_flag)
 {
+
+}
+
+void Button::setup()
+{
   pinMode(pin, INPUT);
 }
 
@@ -56,4 +61,17 @@ void Button::set_debounce(unsigned long _debounce_ms)
 int Button::get_pin() const
 {
   return pin;
+}
+
+bool Button::press() {
+  static bool is_pressed = false;
+  const bool currently_pressed = read();
+  if (!is_pressed && currently_pressed) {
+    is_pressed = true;
+    return true;
+  }
+  else if (is_pressed && !currently_pressed) {
+    is_pressed = false;
+  }
+  return false;
 }

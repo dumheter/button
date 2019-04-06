@@ -25,6 +25,8 @@ public:
    */
   Button(int pin, bool normally_high_flag = false);
 
+  void setup();
+
   /**
    * Debounced read of button.
    *
@@ -48,12 +50,17 @@ public:
    */
   int get_pin() const;
 
+  /**
+   * Return true only once when the button is wass pressed down.
+   */
+  bool press();
+
 
 private:
   const int pin;
   const bool normally_high_flag;
   unsigned long timer = 0;
-  unsigned long debounce_ms = 5;
+  unsigned long debounce_ms = 15;
   bool debounce_flag = false;
   bool button_state = false;
 
